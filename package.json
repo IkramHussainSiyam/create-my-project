@@ -1,0 +1,31 @@
+{
+  "type": "module",
+  "name": "my-project",
+  "version": "1.0.0",
+  "description": "Most used React/Next JS/TS settings and configs as a template.",
+  "main": "cli.js",
+  "bin": {
+    "create-my-project": "cli.js"
+  },
+  "files": [
+    "cli.js",
+    "templates"
+  ],
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "inquirer": "^12.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IkramHussainSiyam/create-my-project.git"
+  },
+  "author": "IkramHussainSiyam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IkramHussainSiyam/create-my-project/issues"
+  },
+  "homepage": "https://github.com/IkramHussainSiyam/create-my-project#readme"
+}
