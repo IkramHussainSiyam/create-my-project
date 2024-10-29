@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "name": "my-project",
+  "name": "ikramhussainsiyam-create-my-project",
   "version": "1.0.0",
   "description": "Most used React/Next JS/TS settings and configs as a template.",
   "main": "cli.js",
