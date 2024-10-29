@@ -38,6 +38,12 @@ async function main() {
     // Copy template files to the new project directory
     await fs.copy(templatePath, targetPath);
 
+    // Rename gitignore-template to .gitignore in the target directory
+    await fs.rename(
+      path.join(targetPath, "gitignore-template"),
+      path.join(targetPath, ".gitignore")
+    );
+
     // Update package.json with the project name
     const packageJsonPath = path.join(targetPath, "package.json");
     const packageJson = await fs.readJson(packageJsonPath);
