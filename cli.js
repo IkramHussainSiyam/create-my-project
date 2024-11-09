@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// TODO (for later): update in `package.json` deps from `react-toastify` to `sonner`.
+
 import { execSync } from "child_process";
 import fs from "fs-extra";
 import inquirer from "inquirer";
@@ -10,7 +12,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 async function main() {
-  const { framework, language, projectName } = await inquirer.prompt([
+  const {
+    framework,
+    language,
+    projectName: rawProjectName,
+  } = await inquirer.prompt([
     { type: "input", name: "projectName", message: "Enter project name:" },
     {
       type: "list",
@@ -26,13 +32,20 @@ async function main() {
     },
   ]);
 
+  // Determine the actual project name
+  const projectName =
+    rawProjectName === "." ? path.basename(process.cwd()) : rawProjectName;
+
   const templatePath = path.join(
     __dirname,
     "templates",
     `${framework}JS`,
     language
   );
-  const targetPath = path.join(process.cwd(), projectName);
+  const targetPath = path.join(
+    process.cwd(),
+    rawProjectName === "." ? "" : projectName
+  );
 
   try {
     // Copy template files to the new project directory
