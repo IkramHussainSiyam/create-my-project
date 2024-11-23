@@ -23,4 +23,17 @@
   .btn {
     @apply px-2 py-1 border rounded hover:bg-zinc-100 active:bg-white active:scale-95;
   }
+  /* TODO: remove 👇 these classes if you don't need them. */
+  .flex-c {
+    @apply flex justify-center items-center gap-2;
+  }
+  .flex-y {
+    @apply flex flex-col gap-2 items-center;
+  }
+  .flex-x {
+    @apply flex flex-row gap-2 items-center;
+  }
+  .title {
+    @apply text-2xl font-semibold mb-6;
+  }
 }

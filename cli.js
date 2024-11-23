@@ -28,7 +28,7 @@ async function main() {
       type: "list",
       name: "language",
       message: "Choose your language:",
-      choices: ["JavaScript", "TypeScript"],
+      choices: ["JavaScript"],
     },
   ]);
 

@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased bg-white font-sans;
+  }
+  /* scroll bar styling */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #e2e2e2;
+    border-radius: 10px;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-2 py-1 border rounded hover:bg-zinc-100 active:bg-white active:scale-95;
+  }
+  .container {
+    @apply px-4;
+  }
+  .input {
+    @apply px-3 py-2 border rounded;
+  }
+}
