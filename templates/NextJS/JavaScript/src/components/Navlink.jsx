@@ -1,28 +1,31 @@
 "use client";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { forwardRef } from "react";
 
-function Navlink({ href, className, children, ...props }, ref) {
+export default function Navlink({
+  href,
+  className,
+  activeStyle,
+  children,
+  prefetch,
+  replace,
+  scroll,
+  ...props
+}) {
   const pathname = usePathname();
   const isActive = href === pathname;
 
   return (
     <Link
+      scroll={scroll}
+      replace={replace}
+      prefetch={prefetch}
       href={href}
       {...props}
-      className={
-        isActive && className
-          ? `underline ${className}`
-          : isActive
-          ? "underline"
-          : className
-      }
-      ref={ref}
+      className={cn(isActive && (activeStyle ?? "active"), className)}
     >
       {children}
     </Link>
   );
 }
-
-export default forwardRef(Navlink);

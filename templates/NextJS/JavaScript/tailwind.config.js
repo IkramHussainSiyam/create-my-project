@@ -1,14 +1,10 @@
 /** @type {import('tailwindcss').Config} */
-import aspectRatio from "@tailwindcss/aspect-ratio";
-import forms from "@tailwindcss/forms";
-
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-
   theme: {
     extend: {
       fontFamily: {
@@ -16,5 +12,8 @@ module.exports = {
       },
     },
   },
-  plugins: [forms, aspectRatio],
+  plugins: [
+    require("@tailwindcss/aspect-ratio"),
+    require("@tailwindcss/forms"),
+  ],
 };

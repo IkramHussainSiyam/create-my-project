@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-// TODO (for later): update in `package.json` deps from `react-toastify` to `sonner`.
-
 import { execSync } from "child_process";
 import fs from "fs-extra";
 import inquirer from "inquirer";

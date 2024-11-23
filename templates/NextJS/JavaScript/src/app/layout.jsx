@@ -9,8 +9,8 @@ const fontSans = Inter({
 });
 
 export const metadata = {
-  title: "Project Title",
-  description: "Project Description",
+  title: "Project title",
+  description: "Project description",
 };
 
 export default function RootLayout({ children }) {
