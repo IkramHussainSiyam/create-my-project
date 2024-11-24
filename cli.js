@@ -5,6 +5,7 @@ import fs from "fs-extra";
 import inquirer from "inquirer";
 import path from "path";
 import { fileURLToPath } from "url";
+import packageJsonTemplates from "./lib/data.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,18 +16,26 @@ async function main() {
     language,
     projectName: rawProjectName,
   } = await inquirer.prompt([
-    { type: "input", name: "projectName", message: "Enter project name:" },
+    {
+      type: "input",
+      name: "projectName",
+      message: "Enter project name:",
+      default: "my-project",
+      required: true,
+    },
     {
       type: "list",
       name: "framework",
       message: "Choose your framework:",
       choices: ["Vite", "Next"],
+      default: "Next",
     },
     {
       type: "list",
       name: "language",
       message: "Choose your language:",
-      choices: ["JavaScript"],
+      choices: ["JavaScript"], // TODO: Add "TypeScript" when you include it
+      default: "JavaScript",
     },
   ]);
 
@@ -55,10 +64,12 @@ async function main() {
       path.join(targetPath, ".gitignore")
     );
 
-    // Update package.json with the project name
+    // Generate package.json dynamically
+    const packageJson = {
+      ...packageJsonTemplates[`${framework}JS`][language],
+      name: projectName,
+    };
     const packageJsonPath = path.join(targetPath, "package.json");
-    const packageJson = await fs.readJson(packageJsonPath);
-    packageJson.name = projectName;
     await fs.writeJson(packageJsonPath, packageJson, { spaces: 2 });
 
     // Initialize Git
@@ -67,9 +78,9 @@ async function main() {
     // Install dependencies
     execSync("npm install", { cwd: targetPath, stdio: "inherit" });
 
-    console.log("Project created successfully.");
+    console.log("Project created successfully ✅.");
   } catch (error) {
-    console.error("Error creating project:", error);
+    console.error("❌ Error creating project:", error);
   }
 }
 
