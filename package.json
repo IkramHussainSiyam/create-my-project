@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "ikramhussainsiyam-create-my-project",
-  "version": "1.5.7",
+  "version": "1.5.8",
   "description": "Most used React/Next JS/TS settings and configs as a template.",
   "main": "cli.js",
   "bin": {
