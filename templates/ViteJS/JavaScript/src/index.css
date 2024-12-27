@@ -23,7 +23,7 @@
   .btn {
     @apply px-2 py-1 border rounded hover:bg-zinc-100 active:bg-white active:scale-95;
   }
-  /* TODO: remove 👇 these classes if you don't need them. */
+
   .flex-c {
     @apply flex justify-center items-center gap-2;
   }
